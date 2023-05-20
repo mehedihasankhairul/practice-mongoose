@@ -21,8 +21,7 @@ export const getUserByIdFromDB = async (payload: string): Promise<IUser | null> 
   return user;
 };
 
-export const getAllAdminUsers = async (payload: string): Promise<IUser | null> => {
-  const adminUser = new User(payload);
-  const result = await adminUser.find({ role: "admin" });
-  return result;
+export const getAdminUsersFromDB = async () => {
+  const admins = await User.getAdminUsers();
+  return admins;
 };
